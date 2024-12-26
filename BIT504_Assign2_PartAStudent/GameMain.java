@@ -3,7 +3,6 @@ import java.awt.event.*;
 import javax.swing.*;
 
 
-
 public class GameMain extends JPanel implements MouseListener{
 	//Constants for game 
 	// number of ROWS by COLS cell constants 
@@ -28,6 +27,9 @@ public class GameMain extends JPanel implements MouseListener{
 	 	 
 	//TODO: create the enumeration for the variable below (GameState currentState)
 	//HINT all of the states you require are shown in the code within GameMain
+	private enum GameState { 
+		Playing, Draw, Cross_won, Nought_won
+	}
 	private GameState currentState; 
 	
 	// the current player
@@ -135,8 +137,9 @@ public class GameMain extends JPanel implements MouseListener{
 			//check for win after play
 			if(board.hasWon(thePlayer, row, col)) {
 				
-				currentState = GameState.Cross_won; // TODO: check which player has won and update the currentstate to the appropriate gamestate for the winner
+				currentState = (thePlayer == Player.Cross) ? // TODO: check which player has won and update the currentstate to the appropriate gamestate for the winner
 
+				GameState.Cross_won : GameState.Nought_won; 
 				
 			} else 
 				if (board.isDraw ()) {
@@ -206,3 +209,4 @@ public class GameMain extends JPanel implements MouseListener{
 	}
 
 }
+

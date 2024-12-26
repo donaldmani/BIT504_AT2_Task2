@@ -32,6 +32,7 @@ public class Board {
 		for (int row = 0; row <GameMain.ROWS; ++row) {
 			for (int col = 0; col < GameMain.COLS; ++col) {
 				if (cells[row][col].content ==  Player.Empty) {
+					return false; // if any cell is empty, it's not a draw.
 			}
 		}
 		   				
@@ -47,7 +48,7 @@ public class Board {
 		
 		 // TODO: Check if the player has 3 in the playerCol.
 		 // Hint: Use the row code above as a starting point, remember that it goes cells[row][column] 
-		if (cells[playerCol][0].content == thePlayer && cells[playerCol][1].content == thePlayer && cells[playerCol][2].content == thePlayer) {
+		if (cells[0][playerCol].content == thePlayer && cells[1][playerCol].content == thePlayer && cells[2][playerCol].content == thePlayer) {
 			return true;
 		}
 		
