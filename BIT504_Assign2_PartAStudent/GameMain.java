@@ -1,3 +1,5 @@
+//BIT504 Programming 1, Donald Mani, Student ID : 5096104
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
